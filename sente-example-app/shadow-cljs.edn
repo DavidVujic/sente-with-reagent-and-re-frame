@@ -1,0 +1,16 @@
+;; shadow-cljs configuration
+{:source-paths
+ ["src/dev"
+  "src/main"
+  "src/test"]
+
+ :dependencies
+ [[reagent "1.0.0-alpha2"]
+  [re-frame "1.0.0"]
+  [com.taoensso/sente "1.16.0-alpha1"]]
+ :dev-http {8080 "public"}
+ :builds
+ {:frontend
+  {:target  :browser
+   :modules {:main {:init-fn example.frontend.app/init}}
+   }}}
