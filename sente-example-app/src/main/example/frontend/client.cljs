@@ -1,14 +1,13 @@
 (ns example.frontend.client
-  (:require [reagent.core :as r]
-            [taoensso.sente :as sente]
+  (:require [taoensso.sente :as sente]
             [taoensso.encore :as encore :refer-macros (have have?)]
             [example.frontend.handlers :as handlers]))
 
 (def router_ (atom nil))
 
-(def ch-chsk (r/atom nil))
-(def chsk-send! (r/atom nil))
-(def chsk-state (r/atom nil))
+(def ch-chsk (atom nil))
+(def chsk-send! (atom nil))
+(def chsk-state (atom nil))
 
 (def config {:type     :auto
              :packer   :edn
