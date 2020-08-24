@@ -7,7 +7,7 @@
 (def main-ring-handler
   (-> router/ring-routes
       (wrap-defaults site-defaults)
-      (wrap-cors :access-control-allow-origin [#".*"]))) ;; TODO: don't allow any origin
+      (wrap-cors :access-control-allow-origin [#".*"]))) ;; TODO: restrict origin
 
 (defonce web-server_ (atom nil))
 
@@ -20,5 +20,5 @@
         [port stop-fn]
         (let [stop-fn (http-kit/run-server ring-handler {:port port})]
           [(:local-port (meta stop-fn)) (fn [] (stop-fn :timeout 100))])]
-    (println (str "Web server is running at port " port))
+    (println (str "Running at port " port))
     (reset! web-server_ stop-fn)))

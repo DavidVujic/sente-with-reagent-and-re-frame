@@ -2,7 +2,6 @@
   (:require [re-frame.core :as rf]
             [example.frontend.client :as client]))
 
-;; TODO: why not assoc in db?
 (rf/reg-event-db
  :init
  (fn [_ _]
@@ -19,7 +18,7 @@
    (update-in db [:example :push] inc)))
 
 (rf/reg-event-fx
-  :connect
-  (fn [_ _]
-    (client/start!)
-    {:dispatch [:connected true]}))
+ :connect
+ (fn [_ _]
+   (client/start!)
+   {:dispatch [:connected true]}))

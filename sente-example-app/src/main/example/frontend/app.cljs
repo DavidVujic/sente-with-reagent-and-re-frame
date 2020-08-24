@@ -14,8 +14,9 @@
 (defn page []
   (let [push-count (or @(rf/subscribe [:push-count]) 0)]
     [:div
-     [:p (str "Push count: " push-count)] 
-     [connect-button]]))
+     [:p (str "Push count: " push-count)]
+     [connect-button]
+     [:p "(push data is logged to the console)"]]))
 
 (defn init []
   (rf/dispatch-sync [:init])
