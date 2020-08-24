@@ -1,10 +1,11 @@
 ## Example code
 
-This repo contain example code combining the `sente` realtime communication library 
+This repo contains example code that combines the `sente` realtime communication library 
+with `Reagent` and `re-frame`. 
 
-with `Reagent` and `re-frame`.
+The code is based on [the examples section](https://github.com/ptaoussanis/sente/#example-projects) from the `sente` repository.
 
-The code is based on [the examples section](https://github.com/ptaoussanis/sente/#example-projects) in the `sente` repository.
+Note that the code in this repo, both the client and server, is intentionally simplified and include fewer features than the official example at the `sente` repository.
 
 ### Client
 #### ClojureScript, Reagent, re-frame and sente
