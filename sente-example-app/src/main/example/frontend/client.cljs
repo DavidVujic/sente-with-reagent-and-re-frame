@@ -1,6 +1,5 @@
 (ns example.frontend.client
   (:require [taoensso.sente :as sente]
-            [taoensso.encore :as encore :refer-macros (have have?)]
             [example.frontend.handlers :as handlers]))
 
 (def router_ (atom nil))
