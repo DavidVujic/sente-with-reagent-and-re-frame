@@ -14,11 +14,14 @@
              :host     "localhost"
              :port     5000})
 
+(defn state-watcher [_key _atom _old-state new-state]
+  (.warn js/console "New state" new-state))
+
 (defn create-client! []
   (let [{:keys [ch-recv send-fn state]} (sente/make-channel-socket-client! "/chsk" nil config)]
     (reset! ch-chsk ch-recv)
     (reset! chsk-send! send-fn)
-    (reset! chsk-state state)))
+    (add-watch state :state-watcher state-watcher)))
 
 (defn stop-router! []
   (when-let [stop-f @router_] (stop-f)))
