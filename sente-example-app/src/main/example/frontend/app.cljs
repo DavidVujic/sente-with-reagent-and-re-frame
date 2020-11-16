@@ -8,16 +8,16 @@
 (defn connect-button []
   [:input {:type     :button
            :value    "Connect"
-           :disabled @(rf/subscribe [:connected])
-           :on-click #(rf/dispatch [:connect])}])
+           :disabled @(rf/subscribe [:app/connected])
+           :on-click #(rf/dispatch [:app/connect])}])
 
 (defn page []
-  (let [push-count (or @(rf/subscribe [:push-count]) 0)]
+  (let [push-count (or @(rf/subscribe [:app/push-count]) 0)]
     [:div
      [:p (str "Push count: " push-count)]
      [connect-button]
      [:p "(push data is logged to the console)"]]))
 
 (defn init []
-  (rf/dispatch-sync [:init])
+  (rf/dispatch-sync [:app/init])
   (rdom/render [page] (js/document.getElementById "root")))

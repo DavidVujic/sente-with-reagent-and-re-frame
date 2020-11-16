@@ -3,22 +3,22 @@
             [example.frontend.client :as client]))
 
 (rf/reg-event-db
- :init
+ :app/init
  (fn [_ _]
    {:example {}}))
 
 (rf/reg-event-db
- :connected
+ :app/connected
  (fn [db [_ value]]
    (assoc-in db [:example :connected] value)))
 
 (rf/reg-event-db
- :increase
+ :app/increase
  (fn [db _]
    (update-in db [:example :push] inc)))
 
 (rf/reg-event-fx
- :connect
+ :app/connect
  (fn [_ _]
    (client/start!)
-   {:dispatch [:connected true]}))
+   {:dispatch [:app/connected true]}))

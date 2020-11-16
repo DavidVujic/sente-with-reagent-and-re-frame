@@ -2,11 +2,11 @@
   (:require [re-frame.core :as rf]))
 
 (rf/reg-sub
- :push-count
+ :app/push-count
  (fn [db _]
    (get-in db [:example :push])))
 
 (rf/reg-sub
- :connected
+ :app/connected
  (fn [db _]
    (true? (get-in db [:example :connected]))))

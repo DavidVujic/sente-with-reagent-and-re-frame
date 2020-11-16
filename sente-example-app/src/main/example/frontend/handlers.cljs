@@ -16,5 +16,5 @@
 
 (defmethod -event-msg-handler :chsk/recv
   [{:keys [?data]}]
-  (rf/dispatch [:increase])
+  (rf/dispatch [:app/increase])
   (log "Push event from server:" ?data))
